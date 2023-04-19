@@ -3,7 +3,7 @@ name: Update Organizations
 on:
   schedule:
     # Set the interval to run the workflow
-    - cron: '*/1 * * * *'
+    - cron: '* */12 * * *'
 
 jobs:
   update_orgs:

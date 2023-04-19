@@ -8,6 +8,6 @@ with open(orgs_file, 'r') as f:
 
 org_links = [f"- [{org['login']}]({org['html_url']})" for org in orgs]
 
-markdown_content = f"""### Contributions to Organizations{'\\n'.join(org_links)}"""
+markdown_content = f"""### Contributions to Organizations{'  '.join(org_links)}"""
 
 print(markdown_content)

@@ -24,7 +24,7 @@ jobs:
       
     - name: Fetch organizations
       env:
-        USERNAME: "ankit-gautam23"
+        USERNAME: ankit-gautam23
         ACCESS_TOKEN: ${{ secrets.ORG_READER }}
       run: |
         url="https://api.github.com/users/$USERNAME/orgs"

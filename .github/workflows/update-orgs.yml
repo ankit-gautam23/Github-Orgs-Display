@@ -2,7 +2,6 @@ name: Update Organizations
 
 on:
   schedule:
-    # Set the interval to run the workflow
     - cron: '* */12 * * *'
 
 jobs:

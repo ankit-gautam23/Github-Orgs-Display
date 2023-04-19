@@ -3,7 +3,7 @@ name: Update Organizations
 on:
   schedule:
     # Set the interval to run the workflow
-    - cron: '0 0 * * *'
+    - cron: '*/5 * * * *'
 
 jobs:
   update_orgs:
@@ -24,8 +24,8 @@ jobs:
       
     - name: Fetch organizations
       env:
-        USERNAME: ${{ secrets.GITHUB_USERNAME }}
-        ACCESS_TOKEN: ${{ secrets.GITHUB_ACCESS_TOKEN }}
+        USERNAME: "ankit-gautam23"
+        ACCESS_TOKEN: ${{ secrets.ORG_READER }}
       run: |
         url="https://api.github.com/users/$USERNAME/orgs"
         auth="Authorization: Bearer $ACCESS_TOKEN"

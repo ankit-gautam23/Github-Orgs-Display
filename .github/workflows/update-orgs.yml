@@ -1,44 +1,44 @@
-# name: Update Organizations
+name: Update Organizations
 
-# # on:
-# #   schedule:
-# #   - cron: '* */12 * * *'
+on:
+  schedule:
+  - cron: '* */12 * * *'
 
-# jobs:
-#   update_orgs:
-#     runs-on: ubuntu-latest
-#     steps:
-#     - name: Checkout code
-#       uses: actions/checkout@v2
+jobs:
+  update_orgs:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
       
-#     - name: Install Python
-#       uses: actions/setup-python@v2
-#       with:
-#         python-version: '3.x'
+    - name: Install Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
         
-#     - name: Install requests library
-#       run: |
-#         python -m pip install --upgrade pip
-#         pip install requests
+    - name: Install requests library
+      run: |
+        python -m pip install --upgrade pip
+        pip install requests
       
-#     - name: Fetch organizations
-#       env:
-#         USERNAME: ankit-gautam23
-#         ACCESS_TOKEN: ${{ secrets.ORG_READER }}
-#       run: |
-#         url="https://api.github.com/users/$USERNAME/orgs"
-#         auth="Authorization: Bearer $ACCESS_TOKEN"
-#         response=$(curl -H "$auth" $url)
-#         echo $response > orgs.json
+    - name: Fetch organizations
+      env:
+        USERNAME: ankit-gautam23
+        ACCESS_TOKEN: ${{ secrets.ORG_READER }}
+      run: |
+        url="https://api.github.com/users/$USERNAME/orgs"
+        auth="Authorization: Bearer $ACCESS_TOKEN"
+        response=$(curl -H "$auth" $url)
+        echo $response > orgs.json
       
-#     - name: Generate Markdown content
-#       run: |
-#         python generate_markdown.py orgs.json > README.md
+    - name: Generate Markdown content
+      run: |
+        python generate_markdown.py orgs.json > README.md
       
-#     - name: Commit changes
-#       uses: EndBug/add-and-commit@v7
-#       with:
-#         message: "Updated organizations"
-#         add: README.md
-#         author_name: "GitHub Actions"
-#         author_email: "actions@github.com"
+    - name: Commit changes
+      uses: EndBug/add-and-commit@v7
+      with:
+        message: "Updated organizations"
+        add: README.md
+        author_name: "GitHub Actions"
+        author_email: "actions@github.com"
